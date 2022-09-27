@@ -57,11 +57,17 @@ public:
 			if (m_timeToRestart)
 			{
 				Log("about to restart the process");
-				std::this_thread::sleep_for(std::chrono::microseconds(60000));
+				std::this_thread::sleep_for(std::chrono::milliseconds(60000));
 				//std::this_thread::sleep_for(std::chrono::milliseconds(5000));
 
 				m_timeToRestart = false;
-				TerminateProcess(m_pi.hProcess, (UINT)0);
+				bool terminateRes = TerminateProcess(m_pi.hProcess, (UINT)0);
+
+				if (terminateRes)
+				{
+					Log("Process was terminated successfully. About to start it...");
+				}
+
 				std::this_thread::sleep_for(std::chrono::milliseconds(5000));
 
 				if (!StartProcess())
@@ -69,6 +75,8 @@ public:
 					Log("Process failed to start");
 					break;
 				}
+
+				Log("Process started successfully");
 			}
 
 			if (!(i % 150))
