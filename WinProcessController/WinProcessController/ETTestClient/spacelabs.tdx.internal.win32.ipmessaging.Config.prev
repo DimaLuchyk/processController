@@ -1,0 +1,11 @@
+{
+   "DiscoveryPort":23131,
+   "DiscoveryAddress":"239.255.12.1",
+   "BroadcastWindow":30,
+   "ConnectorPortRangeBegin":23100,
+   "ConnectorPortRangeEnd":23199,
+   "Adapters":
+   [
+   ],
+   "BroadcastInterval":0
+}

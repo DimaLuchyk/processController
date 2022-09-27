@@ -1,0 +1,17 @@
+{
+   "Settings":
+   [
+      {
+         "Name":"tdx.RMIService.interruptHeartbeatTrigger",
+         "Value":"0"
+      },
+      {
+         "Name":".cdp.et.etconnection.msgDispatchDelay.mean",
+         "Value":"0.1"
+      },
+      {
+         "Name":".cdp.et.etconnection.msgDispatchDelay.msgTriggerCount",
+         "Value":"0"
+      }
+   ]
+}

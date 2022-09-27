@@ -1,0 +1,1 @@
+WpfETTestClient -nogui -slave -script TestClientSlave.txt
