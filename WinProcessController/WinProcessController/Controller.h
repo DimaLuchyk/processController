@@ -12,7 +12,7 @@ class Controller
 public:
 	Controller(const std::wstring& progPaht)
 		: m_progPath{ progPaht },
-		m_timeToRestart{false}
+		m_timeToRestart{true}
 	{
 		//Zero memory of STARTUPINFO and PROCESS_INFORMATION
 		ZeroMemory(&m_si, sizeof(m_si));
@@ -56,6 +56,10 @@ public:
 		{
 			if (m_timeToRestart)
 			{
+				Log("about to restart the process");
+				std::this_thread::sleep_for(std::chrono::microseconds(60000));
+				//std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+
 				m_timeToRestart = false;
 				TerminateProcess(m_pi.hProcess, (UINT)0);
 				std::this_thread::sleep_for(std::chrono::milliseconds(5000));
